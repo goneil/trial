@@ -1,0 +1,20 @@
+Options +FollowSymLinks
+
+#AddType x-mapp-php5 .php
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule ^index\.php$ - [L] 
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+
+<IfModule !mod_php5.c>
+AddType x-mapp-php5 .php
+</IfModule>
+
+#RewriteEngine on
+#RewriteRule !\.(js|ico|gif|jpg|png|css|php)$ index.php
+#php_flag magic_quotes_gpc off
+#php_flag register_globals off
+
